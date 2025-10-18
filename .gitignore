@@ -123,3 +123,7 @@ dmypy.json
 # ChromaDB
 db/
 data/
+
+# Master plan files
+Agentic UK Legal RAG System Master Plan.docx
+Agentic UK Legal RAG System Master Plan.md

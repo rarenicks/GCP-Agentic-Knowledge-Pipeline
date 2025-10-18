@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from .enterprise_rag_agent import EnterpriseRagAgent
+from .core.agent import EnterpriseRagAgent
 
 class QueryRequest(BaseModel):
     query: str

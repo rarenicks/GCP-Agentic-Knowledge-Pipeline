@@ -13,7 +13,17 @@ This project is a fully autonomous, reusable **Multi-Agent RAG Framework** that 
 *   **Backend/API:** FastAPI
 *   **Database:** ChromaDB
 *   **Utilities:** Python, Unstructured, langchain-google-genai
-*   **Deployment:** Docker
+*   **Deployment:** Docker (Planned)
+
+## Code Structure
+
+The codebase is organized into a modular structure:
+
+*   `app/main.py`: The FastAPI application entry point.
+*   `app/core/`: Contains the core agent logic and configuration.
+*   `app/models/`: Contains all Pydantic data models.
+*   `app/nodes/`: Contains the individual functions for each agentic node.
+*   `app/graphs/`: Contains the LangGraph workflow definitions.
 
 ## Architecture
 
@@ -56,11 +66,25 @@ This project utilizes a two-graph architecture:
     GEMINI_API_KEY="your-gemini-api-key"
     ```
 
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Run the application:**
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+
+<!--
+**Note:** Docker support will be available once feature development is complete.
+
 3.  **Build and run the Docker container:**
     ```bash
     docker build -t rag-agent .
     docker run -p 80:80 -v ./db:/app/db --env-file .env rag-agent
     ```
+-->
 
 ## API Endpoints
 
@@ -68,7 +92,7 @@ This project utilizes a two-graph architecture:
 
 *   **Endpoint:** `/ingest`
 *   **Method:** `POST`
-*   **Purpose:** Triggers the MLOps Indexing Workflow to build or update the vector store.  
+*   **Purpose:** Triggers the MLOps Indexing Workflow to build or update the vector store.
 *   **Request Body:**
     ```json
     {
