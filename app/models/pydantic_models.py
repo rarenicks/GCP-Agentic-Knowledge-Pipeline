@@ -1,5 +1,5 @@
-from typing import List, Literal
-from langchain_core.pydantic_v1 import BaseModel, Field
+from typing import List, Literal, TypedDict
+from pydantic import BaseModel, Field
 
 class DocumentSource(BaseModel):
     title: str = Field(description="A descriptive title for the source.")
@@ -19,3 +19,16 @@ class SubQueryList(BaseModel):
 class Critique(BaseModel):
     critique_status: Literal["PASS", "FAIL"] = Field(description="The status of the critique.")
     critique_reasoning: str = Field(description="The reasoning for the critique status.")
+
+class IndexerState(TypedDict):
+    topical_domain: str
+    documents_to_process: List[dict]
+    raw_documents: List[dict]
+    indexing_status: Literal["PENDING", "SUCCESS", "FAILURE"]
+
+class AgentState(TypedDict):
+    query: str
+    sub_queries: List[str]
+    retrieved_context: List[dict]
+    draft_answer: str
+    critique: dict

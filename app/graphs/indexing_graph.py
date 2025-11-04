@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, END
 from ..nodes.indexing_nodes import analyze_sources_node, acquire_data_node, index_data_node
-from ..core.agent import IndexerState
+from ..models.pydantic_models import IndexerState
 
 def create_indexing_graph(llm_pro, embedding_model):
     workflow = StateGraph(IndexerState)

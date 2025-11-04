@@ -5,3 +5,8 @@ langchain-google-genai
 chromadb
 unstructured
 python-dotenv
+langchain
+langchain-chroma
+langchain-core
+lark
+langchain-text-splitters

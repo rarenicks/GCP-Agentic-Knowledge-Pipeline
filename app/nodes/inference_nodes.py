@@ -18,7 +18,7 @@ def run_retrieval_node(state, embedding_model):
     retriever = vectorstore.as_retriever()
     retrieved_docs = []
     for sub_query in state['sub_queries']:
-        retrieved_docs.extend(retriever.get_relevant_documents(sub_query))
+        retrieved_docs.extend(retriever.invoke(sub_query))
     unique_docs = {doc.page_content: doc for doc in retrieved_docs}
     return {"retrieved_context": list(unique_docs.values())}
 

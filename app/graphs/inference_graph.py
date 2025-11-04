@@ -6,7 +6,7 @@ from ..nodes.inference_nodes import (
     critique_answer_node, 
     should_continue_node
 )
-from ..core.agent import AgentState
+from ..models.pydantic_models import AgentState
 
 def create_inference_graph(llm_pro, llm_flash, embedding_model):
     workflow = StateGraph(AgentState)
