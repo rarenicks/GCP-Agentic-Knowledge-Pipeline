@@ -10,3 +10,5 @@ langchain-chroma
 langchain-core
 lark
 langchain-text-splitters
+langchain-community
+pydantic

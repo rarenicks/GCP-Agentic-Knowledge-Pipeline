@@ -1,6 +1,6 @@
 # Agentic Enterprise RAG System
 
-**Note:** This project is a work in progress.
+
 
 ## Overview
 
@@ -13,7 +13,7 @@ This project is a fully autonomous, reusable **Multi-Agent RAG Framework** that 
 *   **Backend/API:** FastAPI
 *   **Database:** ChromaDB
 *   **Utilities:** Python, Unstructured, langchain-google-genai
-*   **Deployment:** Docker (Planned)
+*   **Deployment:** Docker
 
 ## Code Structure
 
@@ -66,25 +66,20 @@ This project utilizes a two-graph architecture:
     GEMINI_API_KEY="your-gemini-api-key"
     ```
 
-3.  **Install dependencies:**
+3.  **Run with Docker (Recommended):**
+    Ensure you have Docker and Docker Compose installed.
     ```bash
-    pip install -r requirements.txt
+    docker-compose up --build
     ```
+    
+    *   **Frontend UI:** Access the interactive chatbot at `http://localhost:8501`.
+    *   **Backend API:** The API is available at `http://localhost:8000`.
 
-4.  **Run the application:**
-    ```bash
-    uvicorn app.main:app --reload
-    ```
+4.  **Run Locally (Manual):**
+    *   Install dependencies: `pip install -r requirements.txt`
+    *   Run Backend: `uvicorn app.main:app --reload`
+    *   Run Frontend: `streamlit run frontend/ui.py`
 
-<!--
-**Note:** Docker support will be available once feature development is complete.
-
-3.  **Build and run the Docker container:**
-    ```bash
-    docker build -t rag-agent .
-    docker run -p 80:80 -v ./db:/app/db --env-file .env rag-agent
-    ```
--->
 
 ## API Endpoints
 

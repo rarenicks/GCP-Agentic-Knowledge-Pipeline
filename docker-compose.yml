@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  rag-agent:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./db:/app/db
+      - ./source_list.json:/app/source_list.json
+    env_file:
+      - .env
+    networks:
+      - rag-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - rag-agent
+    networks:
+      - rag-network
+
+networks:
+  rag-network:
+    driver: bridge
